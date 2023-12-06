@@ -34,6 +34,9 @@ bikes.forEach((elem)=>{
 })
 
 console.log(`La bici piu leggera è la "${nomeBike}" e pesa ${pesoBike} kg`)
+let div = document.querySelector("div");
+div.innerText = `La bici piu leggera è la "${nomeBike}" e pesa ${pesoBike} kg`
+
 
 // SNACK 2
 let squadre =[
@@ -64,7 +67,7 @@ let squadre =[
     },
 ]
 
-let falliSubitiPerSuadra=[];
+let falliSubitiPerSquadra=[];
 
 squadre.forEach((elem)=>{
     elem.falliSubiti=Math.floor(Math.random() * 100);
@@ -75,30 +78,34 @@ squadre.forEach((elem)=>{
         nomeSquadra:nome,
         falliSub:falliSubiti
     }
-    falliSubitiPerSuadra.push(newItem);
+    falliSubitiPerSquadra.push(newItem);
 });
     
-console.log(falliSubitiPerSuadra);
+console.log(falliSubitiPerSquadra);
+div.innerHTML+=`<h3>FALLI SUBITI PER SQUADRA</h3>`
+for(let i=0; i<falliSubitiPerSquadra.length;i++){ 
+    div.innerHTML+=`<div><br>NOME: ${falliSubitiPerSquadra[i].nomeSquadra} <br> FALLI SUBITI: ${falliSubitiPerSquadra[i].falliSub}</h3>`;
+}
 
 // SNACK 3
 let fashionItems=[
     {
-        nome: "Poppy",
+        name: "Poppy",
         type: "tshirt",
         color: "red"
     },
     {
-        nome: "Jumping",
+        name: "Jumping",
         type: "occhiali",
         color: "blue"
     },
     {
-        nome: "CrissCross",
+        name: "CrissCross",
         type: "scarpe",
         color: "black"
     },
     {
-        nome: "Jenny",
+        name: "Jenny",
         type: "borsa",
         color: "pink"
     }
@@ -117,6 +124,11 @@ newFashionItems.push(item);
 })
 
 console.log(newFashionItems);
+div.innerHTML+=`<h3>LISTA ARTICOLI</h3>`
+for(let i=0;newFashionItems.length;i++){ 
+    div.innerHTML+=`<div><br> NAME: ${newFashionItems[i].name} <br> TYPE: ${newFashionItems[i].type} <br> COLOR: ${newFashionItems[i].color} <br> POSITION: ${newFashionItems[i].position}`;
+}
+
 
 //Funzione per generare lettera casuale
 function generateRandomLetter() {
