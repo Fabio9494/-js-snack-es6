@@ -79,3 +79,48 @@ squadre.forEach((elem)=>{
 });
     
 console.log(falliSubitiPerSuadra);
+
+// SNACK 3
+let fashionItems=[
+    {
+        nome: "Poppy",
+        type: "tshirt",
+        color: "red"
+    },
+    {
+        nome: "Jumping",
+        type: "occhiali",
+        color: "blue"
+    },
+    {
+        nome: "CrissCross",
+        type: "scarpe",
+        color: "black"
+    },
+    {
+        nome: "Jenny",
+        type: "borsa",
+        color: "pink"
+    }
+]
+
+let newFashionItems=[];
+fashionItems.forEach((elem)=>{
+    let positionLetter = {
+        position: generateRandomLetter()
+    }
+    let item = {
+        ...elem,
+        ...positionLetter
+    }
+newFashionItems.push(item);
+})
+
+console.log(newFashionItems);
+
+//Funzione per generare lettera casuale
+function generateRandomLetter() {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+  
+    return alphabet[Math.floor(Math.random() * alphabet.length)].toUpperCase();
+  }
